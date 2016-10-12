@@ -2,7 +2,8 @@
 function demungeEmailsOnLoad() {
     body = document.getElementsByTagName("body")[0];
     if (body.onload) {
-	body.onload=function () { body.onload(); demungeEmails(); };
+	var existingHandler = body.onload;
+	body.onload=function () { existingHandler(); demungeEmails(); };
     } else {
 	body.onload=demungeEmails;
     }
